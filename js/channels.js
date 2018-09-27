@@ -1,4 +1,4 @@
-/* Definition Yummy Objjekt" */
+/* Definition Channel Objekte" */
 var yummy = {
     name:"#Yummy", 
     createdOn:"April 1, 2016", 

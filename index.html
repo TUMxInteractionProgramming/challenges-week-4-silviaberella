@@ -21,7 +21,9 @@
     <script src="js/script.js"></script>
     <script src="js/channels.js"></script>
 </head>
-<body>
+
+/* The list of channels will be now dynamically loaded when web applcation is started */
+<body onload="listChannels()">
 
 <!-- channel area -->
 <div id="channels">
@@ -32,80 +34,9 @@
         chatter|app
     </h1>
 
-    <!-- CHANNELS -->
+    <!-- Original CHANNELS has been deleted , because they will be now dynamically created-->
     <ul>
-        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel(yummy)">
-            #Yummy
-            <!-- #5 #channels #icons now grouped in .channel-meta span -->
-            <span class="channel-meta">
-                <!-- Star image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred"> -->
-                <i id ="starYummy" class="far fa-star"></i> 
-                <!-- #5 #channels #icons now with chevron -->
-                <!-- Chevron image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select"> -->
-                <i class="fas fa-angle-right"></i>
-            </span>
-        </li>
-        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li class="selected" onclick="switchChannel(sevenContinents)">
-            #SevenContinents
-            <!-- #5 #channels #icons now grouped in .channel-meta span -->
-            <span class="channel-meta">
-                <!-- Star image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred"> -->
-                <i id ="starSevenContintents" class="fas fa-star"></i> 
-                <!-- #5 #channels #icons now with chevron -->
-                <!-- Chevron image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select"> -->
-                <i class="fas fa-angle-right"></i>
-            </span>
-        </li>
-        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel(killerApp)">
-            #KillerApp
-            <!-- #5 #channels #icons now grouped in .channel-meta span -->
-            <span class="channel-meta">
-                 <!-- Star image replacing font awesom -->
-                 <i id ="starKillerApp" class="far fa-star"></i> 
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred"> -->
-                <!-- #5 #channels #icons now with chevron -->
-                 <!-- Chevron image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select"> -->
-                <i class="fas fa-angle-right"></i>
-            </span>
-        </li>
-        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel(firstPersonOnMars)">
-            #FirstPersonOnMars
-            <!-- #5 #channels #icons now grouped in .channel-meta span -->
-            <span class="channel-meta">
-                <!-- Star image replacing font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/star.png" alt="starred"> -->
-                <i id ="starFirstPersonOnMars" class="fas fa-star"></i>
-                <!-- #5 #channels #icons now with chevron -->
-                 <!-- Chevron image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select"> -->
-                <i class="fas fa-angle-right"></i>
-            </span>
-        </li>
-        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
-        <li onclick="switchChannel(octoberfest)">
-            #Octoberfest
-            <!-- #5 #channels #icons now grouped in .channel-meta span -->
-            <span class="channel-meta">
-                <!-- Star image replacing font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/star-o.png" alt="not starred"> -->
-                <i id ="starOctoberfest" class="far fa-star"></i>
-                <!-- #5 #channels #icons now with chevron -->
-                <!-- Chevron image replaced font awesom -->
-                <!-- <img src="http://ip.lfe.mw.tum.de/sections/chevron-right.png" alt="select"> -->
-                <i class="fas fa-angle-right"></i>  
-            </span>
-        </li>
-
-    </ul>
+   </ul>
 
     <!-- TAB BAR -->
     <div id="tab-bar">
@@ -191,6 +122,8 @@
     <div id="chat-bar"> <!-- #6 #smile #show the menu on click -->
         <button id="emojis-button" onclick="toggleEmojis()"><img src="http://ip.lfe.mw.tum.de/sections/smile-o.png" alt="Smiley"></button>
         <div id="emojis">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+        <input type="text" id="messageId" placeholder="Message..." length="140">
+        <button onclick="sendMessage($('#messageId').val())"> <i class="fas fa-arrow-right"></i> </button>
     </div>
 </div>
 
